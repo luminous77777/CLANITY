@@ -175,7 +175,6 @@
                     }
                 });
             });
-            });
 
             // 허가 버튼 클릭 시
             $(".btn-approve").on("click", function () {
