@@ -82,11 +82,16 @@
   const toast = new bootstrap.Toast(toastEl);
   const ws = new WebSocket('ws://' + location.host + '${cp}/notify');
   console.log(ws);
-  ws.onmessage = function(e) {
-    console.log(e);
-    $(toastEl).find(".toast-body").html(e.data);
-    toast.show();
+  message();
+  function message() {
+    if(!ws) return;
+    ws.onmessage = function(e) {
+      console.log(e);
+      $(toastEl).find(".toast-body").html(e.data);
+      toast.show();
+    }
   }
+
 </script>
 <script>
   $(function() {
